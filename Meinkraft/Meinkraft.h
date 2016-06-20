@@ -3,6 +3,7 @@
 class Player;
 class StateHandler;
 #include "Vector.h"
+#include <GL\freeglut.h>
 
 class KeyboardState
 {
@@ -16,6 +17,8 @@ public:
 
 class Meinkraft
 {
+private:
+	void loadTexture(void);
 public:
 	void init();
 	void draw();
@@ -32,4 +35,6 @@ public:
 	Vec2f mousePosition;
 
 	float lastFrameTime;
+
+	static GLuint texture;
 };

@@ -1,8 +1,11 @@
 #pragma once
 #include "State.h"
+#include "World.h"
 
 class WorldState : public State
 {
+private:
+	World* world;
 public:
 	WorldState();
 	~WorldState();

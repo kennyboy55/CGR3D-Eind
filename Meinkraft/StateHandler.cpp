@@ -7,8 +7,8 @@ StateHandler* StateHandler::instance = nullptr;
 StateHandler::StateHandler()
 {
 	available = false;
-	CState = MENU;
-	CurrentState = new MenuState();
+	CState = WORLD;
+	CurrentState = new WorldState();
 	CurrentState->init();
 	available = true;
 }

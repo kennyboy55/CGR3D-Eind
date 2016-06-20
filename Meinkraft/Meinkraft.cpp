@@ -1,19 +1,52 @@
 
 #include "Meinkraft.h"
-#include <GL/freeglut.h>
 #include <cmath>
 #include <cstring>
 #include "Player.h"
 #include "StateHandler.h"
 
+#define _USE_MATH_DEFINES
+#include <cmath>
+
+#include "stb_image.h"
+#include "stb_perlin.h"
+
 int Meinkraft::width = 0;
 int Meinkraft::height = 0;
+GLuint Meinkraft::texture = NULL;
+
+void Meinkraft::loadTexture(void)
+{
+	//Load Textures :: blocks
+	int img_width, img_height, bpp;
+	unsigned char* imgData = stbi_load("/resources/terrain.png", &img_width, &img_height, &bpp, 4);
+
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+
+	glTexImage2D(GL_TEXTURE_2D,
+		0,				  //level
+		GL_RGBA,		  //internal format
+		img_width,		  //width
+		img_height,		  //height
+		0,				  //border
+		GL_RGBA,		  //data format
+		GL_UNSIGNED_BYTE, //data type
+		imgData);		  //data
+
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+	stbi_image_free(imgData);
+}
 
 void Meinkraft::init()
 {
 	player = Player::getInstance();
 	statehandler = StateHandler::getInstance();
 	//cursor = Cursor::getInstance();
+
+	loadTexture();
 
 	lastFrameTime = 0;
 
@@ -36,6 +69,9 @@ void Meinkraft::draw()
 	gluPerspective(70, width / (float)height, 0.1f, 500);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, texture);
 
 	statehandler->draw();
 
