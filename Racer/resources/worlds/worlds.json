@@ -1,0 +1,6 @@
+{
+  "worlds": [
+		"resources/worlds/race.json",
+		"resources/worlds/dark.json"
+  ]
+}

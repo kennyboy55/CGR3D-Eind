@@ -1,0 +1,29 @@
+{
+  "world": {
+    "heightmap": "resources/worlds/race.png",
+	"texture": "resources/worlds/racetexture.png",
+    "skybox": "resources/skyboxes/sky/",
+	"music": "resources/sounds/race.wav",
+    "object-templates": [ 
+	{
+		"file": "resources/models/Tree/n64tree.obj",
+		"color": 100,
+		"scale": 0.3
+	},
+	{
+		"file": "resources/models/Grass/grass.obj",
+		"color": 110,
+		"scale": 1,
+		"collision": false
+	}]
+  },
+  "player": {
+    "startposition": [ 30, -1,  175],
+	"kart": 
+	{
+		"file": "resources/models/Kart/Kart.obj",
+		"scale": 0.5
+	}
+  },
+  "objects": [  ]
+}

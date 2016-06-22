@@ -1,0 +1,29 @@
+{
+  "world": {
+    "heightmap": "resources/worlds/dark.png",
+	"texture": "resources/worlds/darktexture.png",
+    "skybox": "resources/skyboxes/dark/",
+	"music": "resources/sounds/dark.wav",
+    "object-templates": [ 
+	{
+		"file": "resources/models/DarkTree/n64tree.obj",
+		"color": 100,
+		"scale": 0.3
+	},
+	{
+		"file": "resources/models/DarkGrass/grass.obj",
+		"color": 110,
+		"scale": 1,
+		"collision": false
+	}]
+  },
+  "player": {
+    "startposition": [ 30, -1,  175],
+	"kart": 
+	{
+		"file": "resources/models/Kart/Kart.obj",
+		"scale": 0.5
+	}
+  },
+  "objects": [  ]
+}
